@@ -55,7 +55,11 @@ const client = new Discord.Client({
 client.on('ready', async ()=>{
 	console.log(`Logged in as ${client.user.tag}`);
 	GetPrice();
-	
+
+	setInterval(() =>
+	{
+		GetPrice();
+	}, 1000 * 30); // 10 second delay
 });
 
 client.on('messageCreate', (message) => {
